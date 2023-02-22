@@ -162,7 +162,7 @@
      
     </div>
   </div>
-btn
+
   <div class="b-example-divider text-center">
     <small>lluis.manies.cat @ <?php echo date('Y'); ?></small>
     <br><small><i>icons by <a href="https://icons8.com/icons/dotty">icons8.com</a></i></small>

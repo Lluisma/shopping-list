@@ -26,7 +26,7 @@ class Product {
 	 */
 	public function getProducts() {
 
-		$stmt = $this->pdo->query('SELECT id, name, active, id_category FROM product');
+		$stmt = $this->pdo->query('SELECT id, name, active, id_category FROM product ORDER BY id_category, name');
 		$products = array();
 		while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 			$idCategory = $row['id_category'];
@@ -39,12 +39,12 @@ class Product {
 	}
 
 	/**
-	 * Get categories from selecte products
+	 * Get categories from selected products
 	 * @return type
 	 */
 	public function getSelectedCategories() {
 
-		$stmt = $this->pdo->query('SELECT distinct id_category, active FROM product WHERE active = 2');
+		$stmt = $this->pdo->query('SELECT distinct id_category, active FROM product WHERE active >= 1');
 		$selcategories = array();
 		while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 			$selcategories[] = $row['id_category'];
