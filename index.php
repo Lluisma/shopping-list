@@ -29,7 +29,8 @@
 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="ca">
   <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="assets/features.css" rel="stylesheet">
@@ -161,7 +162,7 @@
      
     </div>
   </div>
-
+btn
   <div class="b-example-divider text-center">
     <small>lluis.manies.cat @ <?php echo date('Y'); ?></small>
     <br><small><i>icons by <a href="https://icons8.com/icons/dotty">icons8.com</a></i></small>
@@ -174,24 +175,25 @@
     const myTimeout = setTimeout(hideMessage, 2000)
 
     function hideMessage() {
-      console.log(document.getElementById('msg'))
       document.getElementById('msg').style.display = "none"
     }
 
-    document.getElementById('btn-delete').onclick = function(){
-      if (confirm('Vols resetejar la llista de producte seleccionats?')) {
-        axios.post('update.php', {
-          id:    0,
-          actiu: 0
-        })
-        .then(function (response) {
-          document.location =  'index.php?mode=list'
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-      }
-    };
+    if (document.getElementById('btn-delete')) {
+      document.getElementById('btn-delete').onclick = function(){
+        if (confirm('Vols resetejar la llista de producte seleccionats?')) {
+          axios.post('update.php', {
+            id:    0,
+            actiu: 0
+          })
+          .then(function (response) {
+            document.location =  'index.php?mode=list'
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+        }
+      };
+    }
 
     function change( id ) {
 
